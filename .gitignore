@@ -1,0 +1,14 @@
+.DS_Store
+.collabignore
+.vscode/
+Assembly-CSharp.csproj
+Assets/Audio/
+Builds/
+Laser Defender.sln
+Library/
+Logs/
+Packages/
+ProjectSettings/
+Temp/
+UserSettings/
+obj/
