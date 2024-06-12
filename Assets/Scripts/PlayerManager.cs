@@ -52,7 +52,6 @@ public class PlayerManager : MonoBehaviour
         }
         else if (scoreKeeper.GetScore() == 1000 & !isLeveledUp)
         {
-            Debug.Log(currentLevel);
             isLeveledUp = true;
             Destroy(player2.gameObject);
             Instantiate(playerPrefabs[level],

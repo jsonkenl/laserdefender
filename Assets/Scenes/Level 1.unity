@@ -557,12 +557,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8086a7c73cbba4a7e97c6adf5d48ac26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenWaves: 0.5
+  timeBetweenWaves: 1
   waveConfigs:
   - {fileID: 11400000, guid: 380cb295680c1459d885586c18c7cc89, type: 2}
   - {fileID: 11400000, guid: 02f025f9b4dd048f9abe4325933e747e, type: 2}
   - {fileID: 11400000, guid: 06ee36b1dbe444a2ca25cd6236fad269, type: 2}
   - {fileID: 11400000, guid: a74745b72606240e5bbd0e5986abd7d3, type: 2}
+  - {fileID: 11400000, guid: 55bc76e486f40484a9be8097774c6d11, type: 2}
+  - {fileID: 11400000, guid: 5ac1807e8e9ff45489640d33af46bb37, type: 2}
+  - {fileID: 11400000, guid: c232c4c4f7e4a4f68ac9bfa16710470e, type: 2}
+  - {fileID: 11400000, guid: 4a83d30e9b02c41fdb8c399243d3b28b, type: 2}
   isLooping: 1
 --- !u!4 &701580595
 Transform:
