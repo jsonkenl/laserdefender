@@ -10,6 +10,7 @@ public class PlayerShip : MonoBehaviour
     [SerializeField] float paddingRight;
     [SerializeField] float paddingTop;
     [SerializeField] float paddingBottom;
+    [SerializeField] int versionNumber;
     Vector2 rawInput;
     Vector2 minBounds;
     Vector2 maxBounds;
@@ -69,5 +70,10 @@ public class PlayerShip : MonoBehaviour
         {
             shooter.isFiring = value.isPressed;
         }
+    }
+
+    public int GetVersionNumber()
+    {
+        return versionNumber;
     }
 }

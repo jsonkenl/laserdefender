@@ -87,6 +87,7 @@ MonoBehaviour:
   paddingRight: 0.5
   paddingTop: 2
   paddingBottom: 1
+  versionNumber: 1
 --- !u!50 &8958349871997069589
 Rigidbody2D:
   serializedVersion: 4

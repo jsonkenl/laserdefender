@@ -20,14 +20,17 @@ public class Shooter : MonoBehaviour
 
     [HideInInspector] public bool isFiring;
 
+    PlayerShip player;
     Coroutine firingCoroutine;
     AudioPlayer audioPlayer;
     Health health;
+    Vector3 laserOffset = new(0.15f, 0.0f, 0.0f);
 
     void Awake()
     {
         audioPlayer = FindObjectOfType<AudioPlayer>();
         health = FindObjectOfType<Health>();
+        player = FindObjectOfType<PlayerShip>();
     }
 
     void Start()
@@ -45,6 +48,10 @@ public class Shooter : MonoBehaviour
 
     void Fire()
     {
+        if (player.GetVersionNumber() == 3 && health.GetIsPlayer() && isFiring && firingCoroutine == null)
+        {
+            firingCoroutine = StartCoroutine(DoubleFireContinuously());
+        }
         if (isFiring && firingCoroutine == null)
         {
             firingCoroutine = StartCoroutine(FireContinuously());
@@ -85,4 +92,47 @@ public class Shooter : MonoBehaviour
             yield return new WaitForSeconds(timeToNextProjectile);
         }
     }
+
+    IEnumerator DoubleFireContinuously()
+    {
+        while (true)
+        {
+            GameObject instance = Instantiate(projectilePrefab,
+                                              transform.position + laserOffset,
+                                              Quaternion.identity);
+
+            Rigidbody2D rb = instance.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+            {
+                rb.velocity = transform.up * projectileSpeed;
+            }
+
+            GameObject instance2 = Instantiate(projectilePrefab,
+                                              transform.position - laserOffset,
+                                              Quaternion.identity);
+
+            Rigidbody2D rb2 = instance2.GetComponent<Rigidbody2D>();
+
+            if (rb2 != null)
+            {
+                rb2.velocity = transform.up * projectileSpeed;
+            }
+
+            Destroy(instance, projectileLifetime);
+            Destroy(instance2, projectileLifetime);
+
+            float timeToNextProjectile = Random.Range(baseFiringRate
+                                                        - firingRateVariance,
+                                                        baseFiringRate
+                                                        + firingRateVariance);
+
+            timeToNextProjectile = Mathf.Clamp(timeToNextProjectile, minimumFiringRate, float.MaxValue);
+
+            audioPlayer.PlayShootingClip();
+
+            yield return new WaitForSeconds(timeToNextProjectile);
+        }
+    }
+
 }

@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8086a7c73cbba4a7e97c6adf5d48ac26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenWaves: 1
+  timeBetweenWaves: 1.5
   waveConfigs:
   - {fileID: 11400000, guid: 380cb295680c1459d885586c18c7cc89, type: 2}
   - {fileID: 11400000, guid: 02f025f9b4dd048f9abe4325933e747e, type: 2}

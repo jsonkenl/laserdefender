@@ -54,6 +54,11 @@ public class Health : MonoBehaviour
         return isDead;
     }
 
+    public bool GetIsPlayer()
+    {
+        return isPlayer;
+    }
+
     void TakeDamage(int damage)
     {
         health -= damage;
