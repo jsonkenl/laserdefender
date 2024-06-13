@@ -52,7 +52,7 @@ public class Shooter : MonoBehaviour
         {
             firingCoroutine = StartCoroutine(DoubleFireContinuously());
         }
-        if (isFiring && firingCoroutine == null)
+        else if (isFiring && firingCoroutine == null)
         {
             firingCoroutine = StartCoroutine(FireContinuously());
         }
